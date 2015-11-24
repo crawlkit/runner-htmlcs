@@ -13,7 +13,7 @@ class HtmlCsRunner {
         return standards.concat([
             htmlCsPath,
             require.resolve('es6-promise'),
-            require.resolve(path.join('css-selector-generator', 'build', 'css-selector-generator.js')),
+            require.resolve('css-selector-generator'),
         ]);
     }
 
