@@ -37,7 +37,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "HTML_CodeSniffer": "git+ssh://git@github.com/squizlabs/HTML_CodeSniffer.git#610cdf1",
+    "HTML_CodeSniffer": "squizlabs/HTML_CodeSniffer#610cdf1",
     "css-selector-generator": "^0.5.0",
     "es6-promise": "^3.0.2",
     "glob": "^6.0.1"
