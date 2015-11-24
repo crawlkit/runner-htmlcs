@@ -1,0 +1,51 @@
+{
+  "name": "crawlkit-runner-htmlcs",
+  "version": "1.0.0",
+  "description": "A CrawlKit runner for running the HTML Codesniffer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint .",
+    "tdd": "mocha --watch --reporter min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/crawlkit/runner-htmlcs.git"
+  },
+  "keywords": [
+    "crawlkit",
+    "a11y",
+    "accessibility"
+  ],
+  "author": "Joscha Feth <joscha@feth.com>",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/crawlkit/runner-htmlcs/issues"
+  },
+  "homepage": "https://github.com/crawlkit/runner-htmlcs#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "crawlkit": "^1.2.0",
+    "eslint": "^1.9.0",
+    "eslint-config-airbnb": "^1.0.0",
+    "freeport": "^1.0.5",
+    "http-server": "^0.8.5",
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "HTML_CodeSniffer": "git+ssh://git@github.com/squizlabs/HTML_CodeSniffer.git#610cdf1",
+    "css-selector-generator": "^0.5.0",
+    "es6-promise": "^3.0.2",
+    "glob": "^6.0.1"
+  },
+  "peerDependencies": {
+    "crawlkit": ">= 1.1.0"
+  },
+  "engines": {
+    "node": ">=4.2"
+  }
+}
