@@ -1,6 +1,6 @@
 {
   "name": "crawlkit-runner-htmlcs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CrawlKit runner for running the HTML Codesniffer",
   "main": "index.js",
   "scripts": {
