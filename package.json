@@ -15,7 +15,10 @@
   "keywords": [
     "crawlkit",
     "a11y",
-    "accessibility"
+    "accessibility",
+    "phantom",
+    "htmlcs",
+    "sniffer"
   ],
   "author": "Joscha Feth <joscha@feth.com>",
   "license": "MIT",
