@@ -1,0 +1,52 @@
+{
+  "Section508": [
+    {
+      "code": "Section508.L.PlaceholderAnchor",
+      "msg": "Anchor element found with link content, but no href, ID, or name attribute has been supplied.",
+      "selector": "a",
+      "type": "warning"
+    }
+  ],
+  "WCAG2A": [
+    {
+      "code": "WCAG2A.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
+      "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "selector": "head",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2A.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+      "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "selector": "a",
+      "type": "warning"
+    }
+  ],
+  "WCAG2AA": [
+    {
+      "code": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
+      "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "selector": "head",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+      "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "selector": "a",
+      "type": "warning"
+    }
+  ],
+  "WCAG2AAA": [
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
+      "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "selector": "head",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+      "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "selector": "a",
+      "type": "warning"
+    }
+  ]
+}

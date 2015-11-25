@@ -27,7 +27,7 @@ crawler.crawl()
     });
 ```
 
-## Only testing certain standards
+### Only testing certain standards
 The HTML Codesniffer runner supports a parameter where you can limit the standards to test for.
 
 By default all standards are tested.
@@ -44,5 +44,15 @@ or multiple:
 // Test WCAG2AA & Section508
 crawler.addRunner('htmlcs', new HtmlCsRunner(), [HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.standard.Section508]);
 ```
+
+### Excluding messages
+If you are not interested in all levels of findings, you can set a level threshold:
+
+```javascript
+// Only interested in warnings & errors (notices are below the threshold)
+crawler.addRunner('htmlcs', new HtmlCsRunner(), null, HtmlCsRunner.level.WARNING);
+```
+Valid thresholds are `NOTICE`, `WARNING` and `ERROR` (use the constants in `HtmlCsRunner.level`).
+
 
 This project is in no way affiliated with squizlabs.

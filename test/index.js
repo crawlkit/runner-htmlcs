@@ -82,4 +82,46 @@ describe('HTML Codesniffer runner', function main() {
             return crawler.crawl().should.eventually.deep.equal({results});
         });
     });
+
+    describe('level threshold', () => {
+        it('should be possible to filter messages based on a given level', () => {
+            const crawler = new CrawlKit(url);
+            const runner = new HtmlCsRunner();
+            crawler.addRunner('notice', runner, HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.level.NOTICE);
+            crawler.addRunner('warning', runner, HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.level.WARNING);
+            crawler.addRunner('error', runner, HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.level.ERROR);
+
+            const results = {};
+            results[`${url}/`] = {
+                runners: {
+                    notice: {
+                        result: require(path.join(__dirname, 'fixtures/results/index.WCAG2AA.notice.json')),
+                    },
+                    warning: {
+                        result: require(path.join(__dirname, 'fixtures/results/index.WCAG2AA.warning.json')),
+                    },
+                    error: {
+                        result: require(path.join(__dirname, 'fixtures/results/index.WCAG2AA.error.json')),
+                    },
+                },
+            };
+            return crawler.crawl().should.eventually.deep.equal({results});
+        });
+    });
+
+    it('...and omit the standard defintion', () => {
+        const crawler = new CrawlKit(url);
+        const runner = new HtmlCsRunner();
+        crawler.addRunner('htmlcs', runner, null, HtmlCsRunner.level.WARNING);
+
+        const results = {};
+        results[`${url}/`] = {
+            runners: {
+                htmlcs: {
+                    result: require(path.join(__dirname, 'fixtures/results/index.warning.json')),
+                },
+            },
+        };
+        return crawler.crawl().should.eventually.deep.equal({results});
+    });
 });

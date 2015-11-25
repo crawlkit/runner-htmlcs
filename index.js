@@ -26,7 +26,7 @@ class HtmlCsRunner {
     /* global HTMLCS:false, ES6Promise:false */
     getRunnable() {
         /* eslint-disable */
-        return function htmlCsRunner(standardsToTest) {
+        return function htmlCsRunner(standardsToTest, levelThreshold) {
             var Promise = ES6Promise.Promise;
             var selectorGenerator = new CssSelectorGenerator();
             var messageCodeToString = [undefined, 'error', 'warning', 'notice'];
@@ -46,12 +46,20 @@ class HtmlCsRunner {
             Promise.all(standards.map(function forStandard(standard) {
                 return new Promise(function(resolve, reject) {
                     HTMLCS.process(standard, document, function success() {
-                        resolve(HTMLCS.getMessages().map(function processMessage(message) {
+                        var result = HTMLCS.getMessages();
+                        if (levelThreshold) {
+                            result = result.filter(function levelThresholdFilter(message) {
+                                return message.type <= levelThreshold;
+                            });
+                        }
+                        result = result.map(function processMessage(message) {
                             message.selector = selectorGenerator.getSelector(message.element);
-                            delete message.element;
                             message.type = messageCodeToString[message.type];
+
+                            delete message.element;
                             return message;
-                        }));
+                        });
+                        resolve(result);
                     }, function error() {
                         reject('HTMLCS ('+standard+') failed');
                     });
@@ -76,5 +84,11 @@ HtmlCsRunner.standard = keyMirror({
     WCAG2AAA: null,
     Section508: null,
 });
+
+HtmlCsRunner.level = {
+    ERROR: 1,
+    WARNING: 2,
+    NOTICE: 3,
+};
 
 module.exports = HtmlCsRunner;
