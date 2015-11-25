@@ -27,4 +27,22 @@ crawler.crawl()
     });
 ```
 
+## Only testing certain standards
+The HTML Codesniffer runner supports a parameter where you can limit the standards to test for.
+
+By default all standards are tested.
+
+Supported standards are: `WCAG2A`, `WCAG2AA`, `WCAG2AAA`, `Section508`.
+
+Use one:
+```javascript
+// Test only WCAG2AA
+crawler.addRunner('htmlcs', new HtmlCsRunner(), HtmlCsRunner.standard.WCAG2AA);
+```
+or multiple:
+```javascript
+// Test WCAG2AA & Section508
+crawler.addRunner('htmlcs', new HtmlCsRunner(), [HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.standard.Section508]);
+```
+
 This project is in no way affiliated with squizlabs.
