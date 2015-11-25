@@ -4,17 +4,22 @@ const glob = require('glob');
 
 class HtmlCsRunner {
     getCompanionFiles() {
-        const htmlCsPath = require.resolve('HTML_CodeSniffer');
-        const standards = glob.sync('**/*.js', {
-            cwd: path.join(path.dirname(htmlCsPath), 'Standards/'),
-            realpath: true,
+        return new Promise((resolve, reject) => {
+            const htmlCsPath = require.resolve('HTML_CodeSniffer');
+            glob('**/*.js', {
+                cwd: path.join(path.dirname(htmlCsPath), 'Standards/'),
+                realpath: true,
+            }, (error, standards) => {
+                if (error) {
+                    return reject(error);
+                }
+                resolve(standards.concat([
+                    htmlCsPath,
+                    require.resolve('es6-promise'),
+                    require.resolve('css-selector-generator'),
+                ]));
+            });
         });
-
-        return standards.concat([
-            htmlCsPath,
-            require.resolve('es6-promise'),
-            require.resolve('css-selector-generator'),
-        ]);
     }
 
     /* global HTMLCS:false, ES6Promise:false */
