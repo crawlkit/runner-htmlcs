@@ -23,28 +23,28 @@ class HtmlCsRunner {
         });
     }
 
-    /* global HTMLCS:false, ES6Promise:false */
     getRunnable() {
-        /* eslint-disable */
+        /* global HTMLCS:false, ES6Promise:false, CssSelectorGenerator:false */
         return function htmlCsRunner(standardsToTest, levelThreshold) {
+            /* eslint-disable no-var, vars-on-top */
             var Promise = ES6Promise.Promise;
             var selectorGenerator = new CssSelectorGenerator();
             var messageCodeToString = [undefined, 'error', 'warning', 'notice'];
             var standards = ['WCAG2A', 'WCAG2AA', 'WCAG2AAA', 'Section508'];
 
             if (standardsToTest instanceof Array) {
-                standardsToTest = standardsToTest.filter(function filterUnknown(standard) {
+                var validStandardsToTest = standardsToTest.filter(function filterUnknown(standard) {
                     return standards.indexOf(standard) !== -1;
                 });
-                if (standardsToTest.length) {
-                    standards = standardsToTest;
+                if (validStandardsToTest.length) {
+                    standards = validStandardsToTest;
                 }
-            } else if(standards.indexOf(standardsToTest) !== -1) {
+            } else if (standards.indexOf(standardsToTest) !== -1) {
                 standards = [standardsToTest];
             }
 
             Promise.all(standards.map(function forStandard(standard) {
-                return new Promise(function(resolve, reject) {
+                return new Promise(function standardPromise(resolve, reject) {
                     HTMLCS.process(standard, document, function success() {
                         var result = HTMLCS.getMessages();
                         if (levelThreshold) {
@@ -61,20 +61,19 @@ class HtmlCsRunner {
                         });
                         resolve(result);
                     }, function error() {
-                        reject('HTMLCS ('+standard+') failed');
+                        reject('HTMLCS (' + standard + ') failed');
                     });
                 });
             })).then(function success(results) {
                 var ret = {};
-                results.forEach(function(result, index) {
+                results.forEach(function eachResult(result, index) {
                     ret[standards[index]] = result;
                 });
                 window.callPhantom(null, ret);
-            }, function error(error) {
-                window.callPhantom(error, null);
+            }, function error(err) {
+                window.callPhantom(err, null);
             });
         };
-        /* eslint-enable */
     }
 }
 
