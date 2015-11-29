@@ -1,8 +1,8 @@
 # HTML Codesniffer runner for CrawlKit
 [![Build status](https://img.shields.io/travis/crawlkit/runner-htmlcs/master.svg)](https://travis-ci.org/crawlkit/runner-htmlcs)
 [![npm](https://img.shields.io/npm/v/crawlkit-runner-htmlcs.svg)](https://www.npmjs.com/package/crawlkit-runner-htmlcs)
-![npm](https://img.shields.io/npm/l/crawlkit-runner-htmlcs.svg)
-![David](https://img.shields.io/david/crawlkit/runner-htmlcs.svg)
+[![npm](https://img.shields.io/npm/l/crawlkit-runner-htmlcs.svg)](https://opensource.org/licenses/MIT)
+[![David](https://img.shields.io/david/crawlkit/runner-htmlcs.svg)](https://david-dm.org/crawlkit/runner-htmlcs)
 ![node](https://img.shields.io/node/v/crawlkit-runner-htmlcs.svg)
 
 This runner can be used with [CrawlKit](https://github.com/crawlkit/crawlkit) in order to audit a website with the [HTML Codesniffer](https://github.com/squizlabs/HTML_CodeSniffer).
