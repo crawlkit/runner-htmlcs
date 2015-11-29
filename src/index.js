@@ -15,9 +15,12 @@ class HtmlCsRunner {
                     return reject(error);
                 }
                 resolve(standards.concat([
+                    // ah, the things your eyes have seen now...
+                    path.join(__dirname, 'amd.undefine.js'),
                     htmlCsPath,
                     require.resolve('es6-promise'),
                     require.resolve('css-selector-generator'),
+                    path.join(__dirname, 'amd.redefine.js'),
                 ]));
             });
         });

@@ -28,7 +28,7 @@ describe('HTML Codesniffer runner', function main() {
                 root: path.join(__dirname, 'fixtures', 'website'),
             });
             server.listen(port);
-            url = `http://${host}:${port}`;
+            url = `http://${host}:${port}/`;
             done();
         });
     });
@@ -37,19 +37,37 @@ describe('HTML Codesniffer runner', function main() {
         server.close();
     });
 
-    it('should be able to sniff a website', () => {
-        const crawler = new CrawlKit(url);
-        crawler.addRunner('htmlcs', new HtmlCsRunner());
+    describe('should be able to sniff', () => {
+        it('a plain website', () => {
+            const crawler = new CrawlKit(url);
+            crawler.addRunner('htmlcs', new HtmlCsRunner());
 
-        const results = {};
-        results[`${url}/`] = {
-            runners: {
-                htmlcs: {
-                    result: require(path.join(__dirname, 'fixtures/results/index.json')),
+            const results = {};
+            results[url] = {
+                runners: {
+                    htmlcs: {
+                        result: require(path.join(__dirname, 'fixtures/results/index.json')),
+                    },
                 },
-            },
-        };
-        return crawler.crawl().should.eventually.deep.equal({results});
+            };
+            return crawler.crawl().should.eventually.deep.equal({results});
+        });
+
+        it('a website with an AMD loader', () => {
+            const amdUrl = `${url}amd.html`;
+            const crawler = new CrawlKit(amdUrl);
+            crawler.addRunner('htmlcs', new HtmlCsRunner());
+
+            const results = {};
+            results[amdUrl] = {
+                runners: {
+                    htmlcs: {
+                        result: require(path.join(__dirname, 'fixtures/results/amd.json')),
+                    },
+                },
+            };
+            return crawler.crawl().should.eventually.deep.equal({results});
+        });
     });
 
     describe('standards', () => {
@@ -58,7 +76,7 @@ describe('HTML Codesniffer runner', function main() {
             crawler.addRunner('htmlcs', new HtmlCsRunner(), HtmlCsRunner.standard.WCAG2AA);
 
             const results = {};
-            results[`${url}/`] = {
+            results[url] = {
                 runners: {
                     htmlcs: {
                         result: require(path.join(__dirname, 'fixtures/results/index.WCAG2AA.json')),
@@ -73,7 +91,7 @@ describe('HTML Codesniffer runner', function main() {
             crawler.addRunner('htmlcs', new HtmlCsRunner(), [HtmlCsRunner.standard.Section508, HtmlCsRunner.standard.WCAG2A]);
 
             const results = {};
-            results[`${url}/`] = {
+            results[url] = {
                 runners: {
                     htmlcs: {
                         result: require(path.join(__dirname, 'fixtures/results/index.WCAG2A.Section508.json')),
@@ -93,7 +111,7 @@ describe('HTML Codesniffer runner', function main() {
             crawler.addRunner('error', runner, HtmlCsRunner.standard.WCAG2AA, HtmlCsRunner.level.ERROR);
 
             const results = {};
-            results[`${url}/`] = {
+            results[url] = {
                 runners: {
                     notice: {
                         result: require(path.join(__dirname, 'fixtures/results/index.WCAG2AA.notice.json')),
@@ -116,7 +134,7 @@ describe('HTML Codesniffer runner', function main() {
         crawler.addRunner('htmlcs', runner, null, HtmlCsRunner.level.WARNING);
 
         const results = {};
-        results[`${url}/`] = {
+        results[url] = {
             runners: {
                 htmlcs: {
                     result: require(path.join(__dirname, 'fixtures/results/index.warning.json')),
