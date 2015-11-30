@@ -17,6 +17,7 @@ class HtmlCsRunner {
                 resolve(standards.concat([
                     // ah, the things your eyes have seen now...
                     path.join(__dirname, 'amd.undefine.js'),
+                    require.resolve(path.join('html-context', 'dist')),
                     htmlCsPath,
                     require.resolve('es6-promise'),
                     require.resolve('css-selector-generator'),
@@ -27,7 +28,7 @@ class HtmlCsRunner {
     }
 
     getRunnable() {
-        /* global HTMLCS:false, ES6Promise:false, CssSelectorGenerator:false */
+        /* global HTMLCS:false, ES6Promise:false, CssSelectorGenerator:false, htmlContext:false */
         return function htmlCsRunner(standardsToTest, levelThreshold) {
             /* eslint-disable no-var, vars-on-top */
             var Promise = ES6Promise.Promise;
@@ -58,7 +59,7 @@ class HtmlCsRunner {
                         result = result.map(function processMessage(message) {
                             message.selector = selectorGenerator.getSelector(message.element);
                             message.type = messageCodeToString[message.type];
-
+                            message.context = htmlContext(message.element, { maxLength: 255 });
                             delete message.element;
                             return message;
                         });

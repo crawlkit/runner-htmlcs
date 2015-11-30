@@ -46,6 +46,7 @@
     "css-selector-generator": "joscha/css-selector-generator#empty-id",
     "es6-promise": "^3.0.2",
     "glob": "^6.0.1",
+    "html-context": "^1.0.4",
     "keymirror": "^0.1.1"
   },
   "peerDependencies": {
