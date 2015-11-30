@@ -3,6 +3,7 @@
     {
       "code": "Section508.L.PlaceholderAnchor",
       "msg": "Anchor element found with link content, but no href, ID, or name attribute has been supplied.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "warning"
     }
@@ -11,18 +12,21 @@
     {
       "code": "WCAG2A.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
       "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "context": "<head></head>",
       "selector": "head",
       "type": "error"
     },
     {
       "code": "WCAG2A.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
       "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "warning"
     },
     {
       "code": "WCAG2A.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
       "msg": "Check that the link text combined with programmatically determined link context identifies the purpose of the link.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "notice"
     }
@@ -31,18 +35,21 @@
     {
       "code": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
       "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "context": "<head></head>",
       "selector": "head",
       "type": "error"
     },
     {
       "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
       "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "warning"
     },
     {
       "code": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
       "msg": "Check that the link text combined with programmatically determined link context identifies the purpose of the link.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "notice"
     }
@@ -51,18 +58,21 @@
     {
       "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
       "msg": "A title should be provided for the document, using a non-empty title element in the head section.",
+      "context": "<head></head>",
       "selector": "head",
       "type": "error"
     },
     {
       "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
       "msg": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "warning"
     },
     {
       "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
       "msg": "Check that text of the link describes the purpose of the link.",
+      "context": "<a href=\"\">no href</a>",
       "selector": "a",
       "type": "notice"
     }
