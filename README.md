@@ -24,7 +24,7 @@ crawler.addRunner('htmlcs', new HtmlCsRunner());
 crawler.crawl()
     .then((data) => {
         console.log(JSON.stringify(data.results, true, 2));
-    });
+    }, (err) => console.error(err));
 ```
 
 ### Only testing certain standards
