@@ -50,7 +50,7 @@ describe('HTML Codesniffer runner', function main() {
                     },
                 },
             };
-            return crawler.crawl().should.eventually.deep.equal({results});
+            return crawler.crawl().should.eventually.deep.equal({ results });
         });
 
         it('a website with an AMD loader', () => {
@@ -66,7 +66,7 @@ describe('HTML Codesniffer runner', function main() {
                     },
                 },
             };
-            return crawler.crawl().should.eventually.deep.equal({results});
+            return crawler.crawl().should.eventually.deep.equal({ results });
         });
     });
 
@@ -83,7 +83,7 @@ describe('HTML Codesniffer runner', function main() {
                     },
                 },
             };
-            return crawler.crawl().should.eventually.deep.equal({results});
+            return crawler.crawl().should.eventually.deep.equal({ results });
         });
 
         it('should be possible to pass multiple standards to test', () => {
@@ -98,7 +98,7 @@ describe('HTML Codesniffer runner', function main() {
                     },
                 },
             };
-            return crawler.crawl().should.eventually.deep.equal({results});
+            return crawler.crawl().should.eventually.deep.equal({ results });
         });
     });
 
@@ -124,7 +124,7 @@ describe('HTML Codesniffer runner', function main() {
                     },
                 },
             };
-            return crawler.crawl().should.eventually.deep.equal({results});
+            return crawler.crawl().should.eventually.deep.equal({ results });
         });
     });
 
@@ -141,6 +141,6 @@ describe('HTML Codesniffer runner', function main() {
                 },
             },
         };
-        return crawler.crawl().should.eventually.deep.equal({results});
+        return crawler.crawl().should.eventually.deep.equal({ results });
     });
 });
