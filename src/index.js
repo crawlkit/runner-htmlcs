@@ -30,7 +30,7 @@ class HtmlCsRunner {
     getRunnable() {
         /* global HTMLCS:false, ES6Promise:false, CssSelectorGenerator:false, htmlContext:false */
         return function htmlCsRunner(standardsToTest, levelThreshold) {
-            /* eslint-disable no-var, vars-on-top */
+            /* eslint-disable no-var, vars-on-top, no-console */
             var Promise = ES6Promise.Promise;
             var selectorGenerator = new CssSelectorGenerator();
             var messageCodeToString = [undefined, 'error', 'warning', 'notice'];
@@ -59,7 +59,12 @@ class HtmlCsRunner {
                         result = result.map(function processMessage(message) {
                             message.selector = selectorGenerator.getSelector(message.element);
                             message.type = messageCodeToString[message.type];
-                            message.context = htmlContext(message.element, { maxLength: 255 });
+                            message.context = null;
+                            try {
+                                message.context = htmlContext(message.element, { maxLength: 255 });
+                            } catch (e) {
+                                console.error(e);
+                            }
                             delete message.element;
                             return message;
                         });
