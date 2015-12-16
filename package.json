@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "HTML_CodeSniffer": "squizlabs/HTML_CodeSniffer#610cdf1",
-    "css-selector-generator": "joscha/css-selector-generator#empty-id",
+    "css-selector-generator": "fczbkk/css-selector-generator#v1.0.2",
     "es6-promise": "^3.0.2",
     "glob": "^6.0.1",
     "html-context": "^1.0.6",
