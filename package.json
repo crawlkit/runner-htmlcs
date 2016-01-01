@@ -46,7 +46,7 @@
     "HTML_CodeSniffer": "squizlabs/HTML_CodeSniffer#610cdf1",
     "css-selector-generator": "^1.0.2",
     "es6-promise": "^3.0.2",
-    "glob": "^6.0.2",
+    "glob": "^6.0.3",
     "html-context": "^1.0.6",
     "keymirror": "^0.1.1"
   },
