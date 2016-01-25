@@ -8,4 +8,4 @@
     delete root.define.tampered;
     /* eslint-enable no-param-reassign */
   }
-})(this);
+}(this));
