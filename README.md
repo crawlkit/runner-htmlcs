@@ -5,6 +5,7 @@
 [![David](https://img.shields.io/david/crawlkit/runner-htmlcs.svg)](https://david-dm.org/crawlkit/runner-htmlcs)
 ![node](https://img.shields.io/node/v/crawlkit-runner-htmlcs.svg)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 This runner can be used with [CrawlKit](https://github.com/crawlkit/crawlkit) in order to audit a website with the [HTML Codesniffer](https://github.com/squizlabs/HTML_CodeSniffer).
 

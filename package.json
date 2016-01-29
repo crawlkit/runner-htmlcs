@@ -1,16 +1,16 @@
 {
   "name": "crawlkit-runner-htmlcs",
-  "version": "1.1.7",
   "description": "A CrawlKit runner for running the HTML Codesniffer",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
     "lint": "eslint .",
-    "tdd": "mocha --watch --reporter min"
+    "tdd": "mocha --watch --reporter min",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/crawlkit/runner-htmlcs.git"
+    "url": "https://github.com/crawlkit/runner-htmlcs.git"
   },
   "keywords": [
     "crawlkit",
@@ -41,7 +41,8 @@
     "eslint-plugin-mocha": "^1.1.0",
     "freeport": "^1.0.5",
     "http-server": "^0.8.5",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "HTML_CodeSniffer": "squizlabs/HTML_CodeSniffer#610cdf1",
