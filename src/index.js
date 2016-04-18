@@ -1,4 +1,5 @@
 'use strict'; // eslint-disable-line
+/* eslint-env node, es6 */
 const path = require('path');
 const glob = require('glob');
 const keyMirror = require('keymirror');
@@ -12,7 +13,8 @@ class HtmlCsRunner {
         realpath: true,
       }, (error, standards) => {
         if (error) {
-          return reject(error);
+          reject(error);
+          return;
         }
         resolve(standards.concat([
           // ah, the things your eyes have seen now...
